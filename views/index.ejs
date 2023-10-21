@@ -29,22 +29,22 @@
       </p>
       <hr class="my-4" />
       <div class="inputForm d-flex">
-        <a class="btn btn-primary shadow rounded-3" role="button">Submit</a>
+        <a class="btn btn-primary shadow rounded-3" role="button" id="pushButton">Push</a>
         <div class="input-group input-group-sm ms-3 diss">
           <span class="input-group-text" id="inputGroup-sizing-sm">input</span>
           <input type="text" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-sm">
+            aria-describedby="inputGroup-sizing-sm" id="inputTextBox">
         </div>
       </div>
       <hr class="my-4" />
       <div class="inputForm d-flex">
-        <a class="btn btn-primary shadow rounded-3" role="button">Pull</a>
+        <button id="pullButton" class="btn btn-primary shadow rounded-3" role="button">Pull</button>
         <div class="input-group input-group-sm ms-3 diss">
           <span class="input-group-text" id="inputGroup-sizing-sm">output</span>
           <input class="form-control" id="disabledInput" value="hello" disabled>
         </div>
-        <select class="form-select ms-3" aria-label="Default select example">
-          <option selected>SQL id</option>
+        <select class="form-select ms-3" aria-label="Default select example" id="idSelector">
+          <option selected value="0">SQL id</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -71,6 +71,57 @@
       </a>
     </div>
   </div>
+  <script>
+    document.getElementById('pullButton').addEventListener('click', async () => {
+      let selectObject = document.getElementById("idSelector");
+      let selectValue = selectObject.value;
+      const id = selectValue; // Change this to the desired ID
+      const response = await fetch(`/data/getspecificdata/${id}`);
+      if (response.status === 200) {
+        try {
+          const data = await response.json();
+          if (data && data[0] && data[0].submittedData) {
+            document.getElementById("disabledInput").value = data[0].submittedData;
+            console.log(data[0].submittedData);
+          } else {
+            document.getElementById("disabledInput").value = 'No "submittedData" found';
+            console.log('No "submittedData" found');
+          }
+        } catch (error) {
+          console.error('Error parsing JSON response:', error);
+        }
+      } else {
+        document.getElementById("disabledInput").value = 'Data not found';
+        console.log('Data not found');
+      }
+    });
+
+    document.getElementById('pushButton').addEventListener('click', async () => {
+      let inputTextBox = document.getElementById("inputTextBox");
+      let inputTextBoxValue = inputTextBox.value;
+
+      try {
+        const response = await fetch('/data/createdata', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: inputTextBoxValue,
+        });
+
+        if (response.status === 200) {
+          const responseData = await response.json();
+          alert('Data created successfully');
+          // Handle the response data if needed
+        } else {
+          alert('Failed to create data');
+        }
+      } catch (error) {
+        console.error('Error creating data:', error);
+      }
+
+    });
+  </script>
 </body>
 
 </html>

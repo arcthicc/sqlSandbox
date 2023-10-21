@@ -31,21 +31,9 @@ async function createData(submittedData) {
     return result
 }
 
-async function main() {
-    const SQLSandboxAllData = await getAllData();
-    console.log(SQLSandboxAllData);
-    const SQLSandboxSpecificData = await getSpecificData(2);
-    console.log(SQLSandboxSpecificData);
-    const result = await createData('Second piece of Data');
-    console.log(result);
-}
-
 module.exports = {
     getAllData,
     getSpecificData,
     createData
 };
 
-main().catch((error) => {
-    console.error(error);
-});
