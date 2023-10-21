@@ -1,6 +1,8 @@
-function setup(){
-    document.getElementById("disabledInput").value = "output";
+function setup() {
+    document.getElementById("disabledInput").value = "kasdjlbfg";
 }
 
-function draw(){
+function draw() {
 }
+
+
