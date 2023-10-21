@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"
+    integrity="sha512-bcfltY+lNLlNxz38yBBm/HLaUB1gTV6I0e+fahbF9pS6roIdzUytozWdnFV8ZnM6cSAG5EbmO0ag0a/fLZSG4Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://kit.fontawesome.com/2d9eadd617.js" crossorigin="anonymous"></script>
+  <script src="/script.js"></script>
+  <div
+    class=".container-sm shadow p-3 mb-5 bg-body rounded-3 position-absolute top-50 start-50 translate-middle border border-4">
+    <div class="jumbotron">
+      <h1 class="display-4">Submit to SQL server</h1>
+      <p class="lead">
+        Simply put in your text in the text box below and click submit! If you
+        would like to pull your data you can click the pull button to do as
+        well!
+      </p>
+      <hr class="my-4" />
+      <div class="inputForm d-flex">
+        <a class="btn btn-primary shadow rounded-3" role="button">Submit</a>
+        <div class="input-group input-group-sm ms-3 diss">
+          <span class="input-group-text" id="inputGroup-sizing-sm">input</span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm">
+        </div>
+      </div>
+      <hr class="my-4" />
+      <div class="inputForm d-flex">
+        <a class="btn btn-primary shadow rounded-3" role="button">Pull</a>
+        <div class="input-group input-group-sm ms-3 diss">
+          <span class="input-group-text" id="inputGroup-sizing-sm">output</span>
+          <input class="form-control" id="disabledInput" value="hello" disabled>
+        </div>
+        <select class="form-select ms-3" aria-label="Default select example">
+          <option selected>SQL id</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div id="links">
+    <div class="meta-link">
+      <span class="label">Jas Sri</span>
+      <span class="dot">·</span>
+      <a class="source" href="https://github.com/arcthicc" target="_blank" title="Check out my Github!">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <span class="dot">·</span>
+      <a class="youtube" href="https://www.instagram.com/jassri0/" target="_blank" title="Maybe my Instagram too!">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>
