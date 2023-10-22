@@ -99,6 +99,7 @@
     document.getElementById('pushButton').addEventListener('click', async () => {
       let inputTextBox = document.getElementById("inputTextBox");
       let inputTextBoxValue = inputTextBox.value;
+      console.log(inputTextBoxValue);
 
       try {
         const response = await fetch('/data/createdata', {
@@ -106,7 +107,9 @@
           headers: {
             'Content-Type': 'application/json',
           },
-          body: inputTextBoxValue,
+          body: JSON.stringify({
+            input:inputTextBoxValue
+          }),
         });
 
         if (response.status === 200) {
